@@ -14,10 +14,10 @@
  * T is the number of timesteps
  */
 #ifndef N
-#define N 1600000L
+#define N 16000000L
 #endif
 #ifndef T
-#define T 1000L
+#define T 10000L
 #endif
 
 #define NUM_FP_OPS 4

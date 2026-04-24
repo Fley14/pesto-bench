@@ -15,10 +15,10 @@
  * T is the number of generations to evolve
  */
 #ifndef N
-#define N 2000L
+#define N 4000L
 #endif /* N */
 #ifndef T
-#define T 500L
+#define T 2000L
 #endif /* T */
 
 #define DATA_TYPE_IS_INT

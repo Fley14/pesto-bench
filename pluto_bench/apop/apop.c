@@ -28,8 +28,8 @@
 #define DEFAULT_V 0.30
 #define DEFAULT_T 1.00
 
-#define DEFAULT_s 2000000
-#define DEFAULT_t 10000
+#define DEFAULT_s 200000000
+#define DEFAULT_t 1000000
 
 #define NUM_FP_OPS 6
 #define BENCHMARK_NUM_FP_OPS (NUM_FP_OPS) * (DEFAULT_s) * (DEFAULT_t)

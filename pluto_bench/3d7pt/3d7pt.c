@@ -14,7 +14,7 @@
 #endif /* N */
 
 #ifndef T
-#define T 200L
+#define T 500L
 #endif /* T */
 
 #define FP_OPS_PER_ITERATION 8
