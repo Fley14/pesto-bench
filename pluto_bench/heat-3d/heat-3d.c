@@ -18,7 +18,7 @@
 #define N 250L
 #endif /* N */
 #ifndef T
-#define T 1000L
+#define T 500L
 #endif /* T */
 
 #define NUM_FP_OPS 15

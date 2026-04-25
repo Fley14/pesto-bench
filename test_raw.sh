@@ -5,7 +5,7 @@
 # ==============================================================================
 
 # Liste des benchmarks à tester (correspondant aux noms des dossiers dans pluto_bench/)
-BENCHMARKS=("3d7pt" "apop" "game-of-life" "heat-1d" "heat-2d" "heat-3d")
+BENCHMARKS=("apop")
 
 # Paramètres d'exécution
 NUM_RUNS=1              # Nombre de répétitions (N)
@@ -80,7 +80,7 @@ for BENCH in "${BENCHMARKS[@]}"; do
     echo "Terminé. Résultats dans $CSV_FILE"
     echo "-------------------------------------"
     echo "menage $EXE"
-    rm -f "$EXE"
+    # rm -f "$EXE"
 done
 
 echo "Tests terminés avec succès."
