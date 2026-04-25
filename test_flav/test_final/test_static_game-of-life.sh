@@ -10,7 +10,7 @@ python3 /home/marteau/pesto-bench/tools/finetune.py \
  --pluto-custom-vec-pragma="#pragma GCC ivdep" \
 --force-omp-schedule "static" \
 --perf-nrun 20 \
---param T0 "[2,4096,pow2]" \
+--param T0 "[16,4096,pow2]" \
 --param T1 "[2,2048,pow2]" \
 --param T2 "[2,2048,pow2]" \
 --timeout 2 \
