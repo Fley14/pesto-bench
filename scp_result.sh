@@ -3,7 +3,7 @@
 # ==============================================================================
 # CONFIGURATION DES DESTINATIONS (SCP)
 # ==============================================================================
-REMOTE_SOURCE="trahrhe:/home/marteau/test_flav/results"
+REMOTE_SOURCE="trahrhe:/home/marteau/test_flav/results/"
 LOCAL_BASE_DIR="./results_trahrhe"
 
 # Gestion de l'argument pour le sous-dossier

@@ -18,7 +18,7 @@
 #define N 4000L
 #endif /* N */
 #ifndef T
-#define T 10000L
+#define T 4000L
 #endif /* T */
 
 #define DATA_TYPE_IS_INT
