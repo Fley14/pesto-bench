@@ -1,6 +1,6 @@
 python3 /home/marteau/pesto-bench/tools/finetune.py \
 /home/marteau/pesto-bench/pluto_bench/heat-3d/heat-3d.c \
---log-file /home/marteau/test_flav/results/res_2026-04-24-19-00-24/heat-3d.log  \
+--log-file /home/marteau/test_flav/results/res_2026-04-24-19-00-24/heat-3d-static.log  \
 --env=/home/marteau/omp64.env \
 --compiler-bin="gcc" \
 -I /home/marteau/pesto-bench/include/ \

@@ -1,6 +1,6 @@
 python3 /home/marteau/pesto-bench/tools/finetune.py \
 /home/marteau/pesto-bench/pluto_bench/3d7pt/3d7pt.c \
---log-file /home/marteau/test_flav/results/res_2026-04-24-19-00-24/3d7pt.log  \
+--log-file /home/marteau/test_flav/results/res_2026-04-24-19-00-24/3d7pt-dynamic.log  \
 --env=/home/marteau/omp64.env \
 --compiler-bin="gcc" \
 -I /home/marteau/pesto-bench/include/ \
