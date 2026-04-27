@@ -35,8 +35,8 @@
 #define DEFAULT_V 0.30
 #define DEFAULT_T 1.00
 
-#define DEFAULT_s 101000000
-#define DEFAULT_t 100000
+#define DEFAULT_s 2010
+#define DEFAULT_t 1000
 
 #define NUM_FP_OPS 6
 #define BENCHMARK_NUM_FP_OPS (NUM_FP_OPS) * (DEFAULT_s) * (DEFAULT_t)
@@ -209,7 +209,6 @@ int main(int argc, char *argv[]) {
 
 	/* print time */
 	benchmark_measure_print();
-
 #ifdef BENCHMARK_DUMP
 	dump_arrays(nt, ns, E, dS, C, F);
 #endif /* BENCHMARK_DUMP */

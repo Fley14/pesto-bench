@@ -8,12 +8,12 @@
 BENCHMARKS=("3d7pt" "apop" "game-of-life" "heat-1d" "heat-2d" "heat-3d")
 
 # Paramètres d'exécution
-NUM_RUNS=10              # Nombre de répétitions (N)
+NUM_RUNS=20              # Nombre de répétitions (N)
 
 # Format : Année-Mois-Jour_Heure-Minutes-Secondes
 TIMESTAMP=$(date +"%Y-%m-%d-%H-%M")
 # Dossier de base pour les résultats
-BASE_OUTPUT_DIR="results"
+BASE_OUTPUT_DIR="test_flav/results/res"
 # Concaténation pour créer un dossier unique par exécution
 OUTPUT_DIR="${BASE_OUTPUT_DIR}_${TIMESTAMP}"
 
