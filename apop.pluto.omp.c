@@ -1,3 +1,10 @@
+#include <omp.h>
+#include <math.h>
+#define ceild(n,d)  (((n)<0) ? -((-(n))/(d)) : ((n)+(d)-1)/(d))
+#define floord(n,d) (((n)<0) ? -((-(n)+(d)-1)/(d)) : (n)/(d))
+#define max(x,y)    ((x) > (y)? (x) : (y))
+#define min(x,y)    ((x) < (y)? (x) : (y))
+
 /*
  * Calculating the price of American Put Option
  * Adapted from Pochoir test bench
@@ -140,16 +147,27 @@ void kernel_apop(param_t nt, param_t ns, data_t E, data_t dS,
 				 data_t BENCHMARK_2D(C, 3, DEFAULT_s, 3, ns),
 				 data_t BENCHMARK_2D(F, 2, DEFAULT_s, 2, ns)) {
 	iter_t t, i;
-#pragma scop
-	for (t = 0; t < nt; ++t) {
-		for (i = 1; i < ns; ++i) {
-			F[(t + 1) % 2][i] =
-				max(C[0][i] * F[t % 2][i - 1] + C[1][i] * F[t % 2][i] +
-						C[2][i] * F[t % 2][i + 1],
-					E - i * dS);
-		}
-	}
-#pragma endscop
+  int t1, t2, t3, t4;
+ int lb, ub, lbp, ubp, lb2, ub2;
+ register int lbv, ubv;
+if ((ns >= 2) && (nt >= 1)) {
+  for (t1=ceild(-7*ns-226,128);t1<=floord(9*nt-16,128);t1++) {
+    lbp=max(max(ceild(-t1-8,7),ceild(t1-7,9)),ceild(16*t1-nt+2,16));
+    ubp=min(min(min(floord(16*t1+ns+14,16),floord(-8*t1+nt-1,56)),floord(8*t1+ns+6,72)),floord(nt+ns-2,128));
+#pragma omp parallel for private(lbv,ubv,t3,t4) schedule(static)
+    for (t2=lbp;t2<=ubp;t2++) {
+      for (t3=max(max(max(0,8*t1+56*t2),16*t1-16*t2+1),128*t2-ns+1);t3<=min(min(min(nt-1,128*t2+126),8*t1+56*t2+71),16*t1-16*t2+ns+14);t3++) {
+        lbv=max(max(128*t2,t3+1),-16*t1+16*t2+2*t3-15);
+        ubv=min(min(128*t2+127,-16*t1+16*t2+2*t3),t3+ns-1);
+
+#pragma GCC ivdep
+        for (t4=lbv;t4<=ubv;t4++) {
+          F[(t3 + 1) % 2][(-t3+t4)] = max(C[0][(-t3+t4)] * F[t3 % 2][(-t3+t4) - 1] + C[1][(-t3+t4)] * F[t3 % 2][(-t3+t4)] + C[2][(-t3+t4)] * F[t3 % 2][(-t3+t4) + 1], E - (-t3+t4) * dS);;
+        }
+      }
+    }
+  }
+}
 }
 
 int main(int argc, char *argv[]) {

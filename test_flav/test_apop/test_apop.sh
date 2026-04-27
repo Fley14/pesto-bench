@@ -1,4 +1,4 @@
-python3 /home/marteau/pesto-bench/tools/finetune.py \
+python3 /home/marteau/pesto-bench/tools/finetune2.py \
 /home/marteau/pesto-bench/pluto_bench/apop/apop.c \
 --log-file /home/marteau/test_flav/results/res_2026-04-24-19-00-24/apop.log  \
 --env=/home/marteau/omp64.env \
@@ -13,3 +13,4 @@ python3 /home/marteau/pesto-bench/tools/finetune.py \
 --param T1 "[16,256,pow2]" \
 --timeout 2 \
 --output-dump-flags="-DBENCHMARK_DUMP_ARRAYS" \
+--keep-binaries \
