@@ -35,8 +35,8 @@
 #define DEFAULT_V 0.30
 #define DEFAULT_T 1.00
 
-#define DEFAULT_s 2010
-#define DEFAULT_t 1000
+#define DEFAULT_s 200000000
+#define DEFAULT_t 10000000
 
 #define NUM_FP_OPS 6
 #define BENCHMARK_NUM_FP_OPS (NUM_FP_OPS) * (DEFAULT_s) * (DEFAULT_t)
@@ -143,7 +143,7 @@ void dump_arrays(param_t nt, param_t ns, data_t E, data_t dS,
 	BENCHMARK_DUMP_STOP();
 }
 
-void kernel_apop(param_t nt, param_t ns, data_t E, data_t dS,
+void kernel_apop(long nt, long ns, data_t E, data_t dS,
 				 data_t BENCHMARK_2D(C, 3, DEFAULT_s, 3, ns),
 				 data_t BENCHMARK_2D(F, 2, DEFAULT_s, 2, ns)) {
 	iter_t t, i;
@@ -151,13 +151,14 @@ void kernel_apop(param_t nt, param_t ns, data_t E, data_t dS,
  int lb, ub, lbp, ubp, lb2, ub2;
  register int lbv, ubv;
 if ((ns >= 2) && (nt >= 1)) {
+  printf("ns: %ld %ld\n",ns,ceild(-7*ns-226,128));
   for (t1=ceild(-7*ns-226,128);t1<=floord(9*nt-16,128);t1++) {
     lbp=max(max(ceild(-t1-8,7),ceild(t1-7,9)),ceild(16*t1-nt+2,16));
     ubp=min(min(min(floord(16*t1+ns+14,16),floord(-8*t1+nt-1,56)),floord(8*t1+ns+6,72)),floord(nt+ns-2,128));
 #pragma omp parallel for private(lbv,ubv,t3,t4) schedule(static)
     for (t2=lbp;t2<=ubp;t2++) {
       for (t3=max(max(max(0,8*t1+56*t2),16*t1-16*t2+1),128*t2-ns+1);t3<=min(min(min(nt-1,128*t2+126),8*t1+56*t2+71),16*t1-16*t2+ns+14);t3++) {
-        lbv=max(max(128*t2,t3+1),-16*t1+16*t2+2*t3-15);
+		lbv=max(max(128*t2,t3+1),-16*t1+16*t2+2*t3-15);
         ubv=min(min(128*t2+127,-16*t1+16*t2+2*t3),t3+ns-1);
 
 #pragma GCC ivdep

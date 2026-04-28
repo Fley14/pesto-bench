@@ -244,7 +244,7 @@ def plot_speedup(df: pd.DataFrame, out_dir: Path):
     err_dyn = df["err_dyn"].to_numpy(dtype=float)
 
     fig, ax = _base_fig(n)
-    kw_err = dict(capsize=3, capthick=1, elinewidth=1, error_kw={"zorder": 5})
+    kw_err = dict(capsize=3, error_kw={"capthick": 1, "elinewidth": 1, "zorder": 5})
     b1 = ax.bar(x - w/2, val_sta, w, color=BLUE,   zorder=3, yerr=err_sta, **kw_err)
     b2 = ax.bar(x + w/2, val_dyn, w, color=ORANGE, zorder=3, yerr=err_dyn, **kw_err)
     _bar_labels(ax, b1)
@@ -275,7 +275,7 @@ def plot_efficiency(df: pd.DataFrame, out_dir: Path):
     err_dyn = df["err_dyn"].to_numpy(dtype=float)     / NUM_CORES
 
     fig, ax = _base_fig(n)
-    kw_err = dict(capsize=3, capthick=1, elinewidth=1, error_kw={"zorder": 5})
+    kw_err = dict(capsize=3, error_kw={"capthick": 1, "elinewidth": 1, "zorder": 5})
     b1 = ax.bar(x - w/2, val_sta, w, color=BLUE,   zorder=3, yerr=err_sta, **kw_err)
     b2 = ax.bar(x + w/2, val_dyn, w, color=ORANGE, zorder=3, yerr=err_dyn, **kw_err)
     _bar_labels(ax, b1, fmt="{:.3f}")

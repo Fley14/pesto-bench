@@ -28,8 +28,8 @@
 #define DEFAULT_V 0.30
 #define DEFAULT_T 1.00
 
-#define DEFAULT_s 101000000
-#define DEFAULT_t 100000
+#define DEFAULT_s 400000
+#define DEFAULT_t 200000
 
 #define NUM_FP_OPS 6
 #define BENCHMARK_NUM_FP_OPS (NUM_FP_OPS) * (DEFAULT_s) * (DEFAULT_t)
@@ -136,7 +136,7 @@ void dump_arrays(param_t nt, param_t ns, data_t E, data_t dS,
 	BENCHMARK_DUMP_STOP();
 }
 
-void kernel_apop(param_t nt, param_t ns, data_t E, data_t dS,
+void kernel_apop(long nt, long ns, data_t E, data_t dS,
 				 data_t BENCHMARK_2D(C, 3, DEFAULT_s, 3, ns),
 				 data_t BENCHMARK_2D(F, 2, DEFAULT_s, 2, ns)) {
 	iter_t t, i;
