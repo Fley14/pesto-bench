@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-SOURCE_DIR="results_trahrhe/results_raw/results_2026-04-23-14-40"
+SOURCE_DIR="results_trahrhe/results/res_raw/res_2026-04-28-17-16"
 TARGET_DIR="results_valide/results_csv/raw"
 STATS_EXECUTABLE="./compute_raw.sh"
 
