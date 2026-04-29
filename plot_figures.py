@@ -252,8 +252,8 @@ def plot_speedup(df: pd.DataFrame, out_dir: Path):
     ax.axhline(1.0, color=RED, linewidth=1.4, zorder=4)
     _avg_separator(ax, programs)
     _xticks(ax, programs)
-    ax.set_ylabel("Speedup  (seq / par)", fontsize=11)
-    ax.set_title("Speedup — Pesto vs Pluto",
+    ax.set_ylabel("Speedup", fontsize=11)
+    ax.set_title("Speedup — Sequential vs Pluto",
                  fontsize=13, fontweight="bold", fontfamily="serif", pad=10)
     ax.yaxis.set_minor_locator(MultipleLocator(0.1))
     ax.set_xlim(-0.6, n - 0.4)
@@ -285,7 +285,7 @@ def plot_efficiency(df: pd.DataFrame, out_dir: Path):
     _avg_separator(ax, programs)
     _xticks(ax, programs)
     ax.set_ylabel(f"Efficiency  (speedup / {NUM_CORES} cores)", fontsize=11)
-    ax.set_title(f"Efficiency — Pesto vs Pluto  ({NUM_CORES} cores)",
+    ax.set_title(f"Efficiency — Sequential vs Pluto  ({NUM_CORES} cores)",
                  fontsize=13, fontweight="bold", fontfamily="serif", pad=10)
     ax.yaxis.set_minor_locator(MultipleLocator(0.005))
     ax.set_xlim(-0.6, n - 0.4)
@@ -318,7 +318,7 @@ def plot_overhead(df: pd.DataFrame, out_dir: Path):
     _avg_separator(ax, programs)
     _xticks(ax, programs)
     ax.set_ylabel("Overhead  (par × cores − seq)  [time units]", fontsize=10)
-    ax.set_title("Parallelisation Overhead — Pesto vs Pluto",
+    ax.set_title("Parallelisation Overhead — Sequential vs Pluto",
                  fontsize=13, fontweight="bold", fontfamily="serif", pad=10)
     ax.set_xlim(-0.6, n - 0.4)
     _legend(ax, [("Static", BLUE), ("Dynamic", ORANGE)])
