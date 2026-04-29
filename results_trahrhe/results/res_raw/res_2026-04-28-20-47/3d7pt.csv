@@ -1,0 +1,44 @@
+run_id,execution_time
+2,9.92
+1,11.94
+3,11.62
+2,10.77
+4,11.01
+3,11.97
+5,11.97
+4,11.24
+6,10.75
+5,11.34
+7,11.56
+6,12.20
+8,12.28
+7,11.27
+9,10.87
+8,11.36
+10,11.26
+9,11.21
+11,10.79
+10,10.81
+12,11.27
+11,10.94
+13,11.46
+12,11.48
+14,10.99
+13,12.09
+15,11.18
+14,11.03
+16,10.82
+15,11.92
+17,11.91
+16,10.78
+18,11.29
+17,11.06
+19,11.46
+18,11.51
+20,11.24
+19,/usr/bin/time: cannot run /home/marteau/pesto-bench/pluto_bench/3d7pt/3d7pt: No such file or directory
+Command exited with non-zero status 127
+0.00
+20,/usr/bin/time: cannot run /home/marteau/pesto-bench/pluto_bench/3d7pt/3d7pt: No such file or directory
+Command exited with non-zero status 127
+0.00
